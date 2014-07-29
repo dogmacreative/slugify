@@ -3,7 +3,8 @@ require "slugify/slugify_concern"
 require "slugify/has_slug"
 
 module Slugify
-  # Your code goes here...
+  class Engine < ::Rails::Engine
+  end
 end
 
 ActiveSupport.on_load(:active_record) do
