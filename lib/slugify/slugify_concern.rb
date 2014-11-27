@@ -14,11 +14,15 @@ module Slugify
       "#{self.slug}"
     end
 
+    def to_slug
+      self.name
+    end
+
     def slugify
       if self.slug_changed? and ! self.slug.blank?
         self.slug = self.slug.parameterize.gsub('%', '')
       elsif self.slug.blank?
-        self.slug = self.name.parameterize.gsub('%', '')
+        self.slug = self.to_slug.parameterize.gsub('%', '')
       end
     end
 
